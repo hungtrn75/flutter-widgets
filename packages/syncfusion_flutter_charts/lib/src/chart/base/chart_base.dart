@@ -1823,7 +1823,7 @@ class SfCartesianChartState extends State<SfCartesianChart>
         _stateProperties.isTooltipOrientationChanged = false;
         final CartesianChartPoint<dynamic> crosshairPoint =
             _getCrosshairChartPoint(_stateProperties);
-        SchedulerBinding.instance.addPostFrameCallback((_) {
+        SchedulerBinding.instance?.addPostFrameCallback((_) {
           _validateStateMaintenance(_stateProperties, crosshairPoint);
         });
         final List<Widget> legendTemplates =
@@ -1832,7 +1832,7 @@ class SfCartesianChartState extends State<SfCartesianChart>
             _stateProperties.renderingDetails.legendWidgetContext.isEmpty) {
           // ignore: avoid_unnecessary_containers
           element = Container(child: Stack(children: legendTemplates));
-          SchedulerBinding.instance.addPostFrameCallback((_) => _refresh());
+          SchedulerBinding.instance?.addPostFrameCallback((_) => _refresh());
         } else {
           _initialize(constraints);
           _stateProperties.renderingDetails.chartLegend.calculateLegendBounds(
